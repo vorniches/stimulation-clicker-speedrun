@@ -70,10 +70,8 @@
             clearTimeout(pressTimeout);
             pressTimeout = null;
           }
-          // Removed return to allow continuation
         }
         // If the collect button hasn't appeared yet, wait
-        // Removed return to allow continuation
       } else {
         const pressBtn = document.querySelector('.press-btn');
         if (pressBtn) {
@@ -86,7 +84,6 @@
               isPressing = false;
             }
           }, PRESS_TIMEOUT_DURATION);
-          // Removed return to allow continuation
         }
       }
 
