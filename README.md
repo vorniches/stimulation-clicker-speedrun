@@ -59,7 +59,12 @@ Initiates the automated clicking and upgrade purchasing process.
 ```javascript
 stopClickerBot()
 ```
-Halts all automated activities performed by the bot.
+
+- **Check Time in Game:**
+```javascript
+showGameTime()
+```
+Displays the current time in the game.
 
 ## License
 
