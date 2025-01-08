@@ -25,9 +25,9 @@ Stimulation Clicker Speedrun is a simple JS script designed to automate clicking
    Copy the entire script from the repository and paste it into the console.
 
 4. **Run the Script:**
-   Press `Enter` to execute the script. You will see a message:
+   Press `Enter` to execute the script. You will see a message with commands description:
    ```
-   Clicker bot script loaded. Type in console startClickerBot() to start and stopClickerBot() to stop.
+   🚀 Clicker Bot Script Loaded 🚀
    ```
 
 5. **Start the Bot:**
