@@ -26,6 +26,34 @@
   const PRESS_TIMEOUT_DURATION = 3000; // 3 seconds
 
   /**************************************************
+   * Game time tracking
+   **************************************************/
+  const gameStartTime = Date.now();
+
+  /**
+   * Formats the elapsed time into 'Xh Xm Xs' format.
+   * @param {number} elapsedMillis - Elapsed time in milliseconds.
+   * @returns {string} Formatted time string.
+   */
+  function formatElapsedTime(elapsedMillis) {
+    const totalSeconds = Math.floor(elapsedMillis / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${hours}h ${minutes}m ${seconds}s in game`;
+  }
+
+  /**
+   * Displays the elapsed game time in the console.
+   */
+  function showGameTime() {
+    const now = Date.now();
+    const elapsed = now - gameStartTime;
+    const formattedTime = formatElapsedTime(elapsed);
+    console.log(formattedTime);
+  }
+
+  /**************************************************
    * Main loop
    **************************************************/
   function gameBot() {
@@ -227,6 +255,8 @@
     } else {
       console.log('Clicker bot is not running.');
     }
+    // Show game time when stopping
+    showGameTime();
   }
 
   /**************************************************
@@ -234,6 +264,17 @@
    **************************************************/
   window.startClickerBot = startClickerBot;
   window.stopClickerBot = stopClickerBot;
+  window.showGameTime = showGameTime;
 
-  console.log('Clicker bot script loaded. Type in console startClickerBot() to start and stopClickerBot() to stop.');
+  console.log(
+    '%c========================================\n🚀 %cClicker Bot Script Loaded 🚀\n========================================\n📌 Available Commands:\n1️⃣ %cstartClickerBot()%c - Starts the Clicker Bot.\n2️⃣ %cstopClickerBot()%c - Stops the Clicker Bot.\n3️⃣ %cshowGameTime()%c - Displays the current time in the game.\n========================================',
+    'color: #4CAF50; font-weight: bold;',
+    'color: #FF9800; font-weight: bold;',
+    'color: #1E90FF; font-weight: bold;',
+    'color: #ccc;',
+    'color: #1E90FF; font-weight: bold;',
+    'color: #ccc;',
+    'color: #1E90FF; font-weight: bold;',
+    'color: #ccc;'
+  );  
 })();
