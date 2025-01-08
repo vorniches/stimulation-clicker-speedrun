@@ -54,6 +54,7 @@
           // Set a timeout to reset isPressing in case .press-collect doesn't appear
           pressTimeout = setTimeout(() => {
             if (isPressing) {
+              console.warn('.press-collect did not appear in time. Resetting press cycle.');
               isPressing = false;
             }
           }, PRESS_TIMEOUT_DURATION);
@@ -167,6 +168,24 @@
       const randomIndex = Math.floor(Math.random() * affordableUpgrades.length);
       const randomUpgrade = affordableUpgrades[randomIndex];
       randomUpgrade.click();
+
+      /**********************************************
+       * 6) Click .loot-box-target if it exists
+       **********************************************/
+      const lootBoxTarget = document.querySelector('.loot-box-target');
+      if (lootBoxTarget) {
+        lootBoxTarget.click();
+      }
+
+      /**********************************************
+       * 7) Click .collect within .reward elements if they exist
+       **********************************************/
+      const rewardCollectElements = document.querySelectorAll('.reward .collect');
+      rewardCollectElements.forEach((collectBtn) => {
+        if (collectBtn) {
+          collectBtn.click();
+        }
+      });
 
     } catch (err) {
       console.warn('Error in gameBot:', err);
